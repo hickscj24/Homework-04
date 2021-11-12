@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: lightgreen;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.quiz-container {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px black;
+  width: 500px;
+  overflow: hidden; 
+}
+
+.quiz-header {
+    padding: 10px;
+   
+}
+
+h2 {
+    padding: 10px;
+   text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+ul li {
+    font-size:medium;
+    margin: 5px;
+}
+
+ul li label {
+    cursor: pointer;
+}
+/*
+button {
+    background-color: purple;
+    color: white;
+    border: none;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    font-size: 10px
+    font-family: inherit;
+    padding: 5px;
+}
+*/
+
+
+
+#CodeQuiz {
+    font-size: 500%;
+    text-align: right;
+    display: inline-block;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 10px 10px 10px black;
+}
