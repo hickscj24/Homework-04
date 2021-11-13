@@ -33,16 +33,19 @@ const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submitBtn');
 const choicesDiv = document.getElementById('choices')
 let seconds;
-
+let score = 0
 var questionCounter = 0;
-
+var highscore = 0;
+var leader = 'aaa';
 const testbtn = document.getElementById("Start");
 
 var timer;
 var time = 30;
 
 testbtn.addEventListener("click", () => {
-
+  questionCounter = 0;
+  time = 30;
+  score = 0
 //start timer
 timer = setInterval(countDown, 1000)
 
@@ -111,6 +114,9 @@ if (this.value !== quizData[questionCounter].correct) {
     return;
   }
 }
+else {
+  score ++
+}
 
 questionCounter++;
 //if there is move on to the next question 
@@ -119,9 +125,30 @@ if (questionCounter === quizData.length) {
   clearInterval(timer);
   document.getElementById("CodeQuiz").innerHTML = "Quiz Complete";
   document.getElementById("quizheader").hidden = true;
+
+  var initials 
+   
+    initials = prompt("Initials Here");
+    if (highscore < score)  {
+      highscore = score;
+      leader = initials;
+    }
+ 
+    var message = `bad luck you scored ${score}`;
+if (score >= 3) {
+  message = `great job! you scored ${score}`;
+}
+document.getElementById("message").innerHTML = message;
+document.getElementById("highscore").innerHTML = `leader, ${leader} highscore ${highscore}`;
+document.getElementById("Start").hidden = false;
+
+
+
+
 } else {
   renderQuiz();
 }
+
 //elsecall function to end quiz
 
 }
