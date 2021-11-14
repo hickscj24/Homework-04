@@ -46,27 +46,21 @@ testbtn.addEventListener("click", () => {
   questionCounter = 0;
   time = 30;
   score = 0
-//start timer
 timer = setInterval(countDown, 1000)
-
-//get question and choices render
 renderQuiz();
 
 })
 
-
 function countDown() {
-//subtract one from current value of time
 time--;
 document.getElementById("timer").innerHTML = time;
 
-//check if timer ran out
+
 if (time <= 0) {
   clearInterval(timer);
   document.getElementById("CodeQuiz").innerHTML = "Game Over: time expired";
   document.getElementById("quizheader").hidden = true;
-  // console.log('End Quiz');
-  //eventually call function to end quiz
+
 }
 }
 
@@ -75,26 +69,20 @@ document.getElementById("quizheader").hidden = false;
 document.getElementById("Start").hidden = true;
 
 console.log(quizData[questionCounter].question);
-//append question to div on html
 questionEl.innerHTML = quizData[questionCounter].question;
 
 choicesDiv.innerHTML = '';
 
 var choicesArr = quizData[questionCounter].choices;
-
-//looping choices arry to create btns and get them renderede
 for (let index = 0; index < choicesArr.length; index++) {
-  //create buttons with each item/
   let btn = document.createElement("button")
 
-  //add text to buttons
+  
   btn.innerHTML = choicesArr[index]
-  //add values to those buttons
+  
   btn.setAttribute('value', choicesArr[index])
-  //console.log(btn)
-  //add function or onclick to the buttons
+  
   btn.onclick = checkAnswer;
-  //then append to html
   choicesDiv.append(btn)
 }
 };
@@ -106,7 +94,6 @@ if (this.value !== quizData[questionCounter].correct) {
   time = time - 10;
   document.getElementById("timer").innerHTML = time;
   
-  //we have to check if our timer has expired due to the penalty:
   if (time <= 0) {
     clearInterval(timer);
     document.getElementById("CodeQuiz").innerHTML = "Game Over: time expired";
@@ -119,7 +106,7 @@ else {
 }
 
 questionCounter++;
-//if there is move on to the next question 
+
 if (questionCounter === quizData.length) {
   console.log('end quiz')
   clearInterval(timer);
@@ -148,7 +135,5 @@ document.getElementById("Start").hidden = false;
 } else {
   renderQuiz();
 }
-
-//elsecall function to end quiz
 
 }
